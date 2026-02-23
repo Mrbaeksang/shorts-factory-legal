@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Shorts Factory - OAuth Callback</title>
+<style>
+body { font-family: -apple-system, sans-serif; max-width: 600px; margin: 80px auto; padding: 20px; text-align: center; }
+code { background: #f4f4f4; padding: 8px 16px; border-radius: 4px; font-size: 18px; display: inline-block; margin: 10px 0; }
+</style>
+</head>
+<body>
+<h1>Authorization Complete</h1>
+<p>Copy the code below and paste it into your terminal:</p>
+<code id="code"></code>
+<script>
+const params = new URLSearchParams(window.location.search);
+const code = params.get('code');
+if (code) {
+    document.getElementById('code').textContent = code;
+} else {
+    document.getElementById('code').textContent = 'No code found. Error: ' + (params.get('error') || 'unknown');
+}
+</script>
+</body>
+</html>
